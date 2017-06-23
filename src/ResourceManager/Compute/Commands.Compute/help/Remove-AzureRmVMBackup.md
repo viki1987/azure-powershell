@@ -20,11 +20,6 @@ Remove-AzureRmVMBackup [-ResourceGroupName] <String> [-VMName] <String> [-Tag] <
 
 ## EXAMPLES
 
-### 1:
-```
-PS C:\> 
-```
-
 ## PARAMETERS
 
 ### -ResourceGroupName
