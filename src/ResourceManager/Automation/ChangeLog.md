@@ -18,6 +18,7 @@
         - Additional information about change #1
 -->
 ## Current Release
+* Bug fix for not setting TimeZone when creating weekly and monthly schedules
 
 ## Version 3.1.0
 
