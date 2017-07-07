@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Microsoft.AzureStack.Storage.Admin.Models.BlobServiceWritableSettings</Name>
+            <ViewSelectedBy>
+                <TypeName>Microsoft.AzureStack.Storage.Admin.Models.BlobServiceWritableSettings</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndThreadPoolBasedKeepAlivePercentage</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndMaxMillisecondsBetweenMemorySamples</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndCpuBasedKeepAliveThrottlingCpuMonitorIntervalInSeconds</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndCpuBasedKeepAliveThrottlingPercentRequestsToThrottle</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndMinThreadPoolThreads</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>

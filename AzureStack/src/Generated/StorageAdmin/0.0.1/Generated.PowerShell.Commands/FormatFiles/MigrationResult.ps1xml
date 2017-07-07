@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Microsoft.AzureStack.Storage.Admin.Models.MigrationResult</Name>
+            <ViewSelectedBy>
+                <TypeName>Microsoft.AzureStack.Storage.Admin.Models.MigrationResult</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>DestinationShareName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>SubEntitiesFailed</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>StorageAccountName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>MigrationStatus</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FailureReason</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Microsoft.AzureStack.Storage.Admin.Models.WritableSettings</Name>
+            <ViewSelectedBy>
+                <TypeName>Microsoft.AzureStack.Storage.Admin.Models.WritableSettings</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndThreadPoolBasedKeepAlivePercentage</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndMinThreadPoolThreads</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndCpuBasedKeepAliveThrottlingEnabled</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndThreadPoolBasedKeepAliveWorkerThreadThreshold</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FrontEndCpuBasedKeepAliveThrottlingPercentCpuThreshold</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>

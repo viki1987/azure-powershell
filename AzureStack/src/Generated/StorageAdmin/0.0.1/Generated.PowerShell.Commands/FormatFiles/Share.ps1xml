@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Microsoft.AzureStack.Storage.Admin.Models.Share</Name>
+            <ViewSelectedBy>
+                <TypeName>Microsoft.AzureStack.Storage.Admin.Models.Share</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>FreeCapacity</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>UsedCapacity</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>TotalCapacity</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>UncPath</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>ShareName</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>
