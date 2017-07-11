@@ -29,7 +29,7 @@ autorest $conf --verbose --debug
 
 Import-Module $PSScriptRoot\..\..\Tools\PSSwagger\PSSwagger\PSSwagger.psd1 -Force
 
-$spec = (Resolve-Path "$PSScriptRoot\Artifacts\common.json").ToString()
+$spec = (Resolve-Path "$PSScriptRoot\Artifacts\fabric.json").ToString()
 $path = (Resolve-Path $output).ToString()
 
 $param = @{
@@ -41,6 +41,8 @@ $param = @{
 }
 
 New-PSSwaggerModule @param
+
+# Generate Code
 
 # Delete all the generated code files
 if( Test-Path $tmp ) {

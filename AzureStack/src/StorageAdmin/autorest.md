@@ -19,7 +19,6 @@ output-artifact:
 # The first json file will also be the name of the artifact file.
 input-file:
     - "https://raw.githubusercontent.com/BrianLPeterson/azure-rest-api-specs/feature/azsswagger/AzureStack/arm-storage-admin/2015-12-01-preview/swagger/common.json"
-    - "https://raw.githubusercontent.com/BrianLPeterson/azure-rest-api-specs/feature/azsswagger/AzureStack/arm-storage-admin/2015-12-01-preview/swagger/common.json"
     - "https://raw.githubusercontent.com/BrianLPeterson/azure-rest-api-specs/feature/azsswagger/AzureStack/arm-storage-admin/2015-12-01-preview/swagger/blobServices.json"
     - "https://raw.githubusercontent.com/BrianLPeterson/azure-rest-api-specs/feature/azsswagger/AzureStack/arm-storage-admin/2015-12-01-preview/swagger/tableServices.json"
     - "https://raw.githubusercontent.com/BrianLPeterson/azure-rest-api-specs/feature/azsswagger/AzureStack/arm-storage-admin/2015-12-01-preview/swagger/queueServices.json"
