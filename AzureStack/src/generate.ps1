@@ -44,10 +44,11 @@ New-PSSwaggerModule @param
 
 # Generate Code
 
-Import-Module ..\Tools\PSSwagger\PSSwagger\PSSwagger.Common.Helpers -Force
-Import-Module ..\Tools\PSSwagger\PSSwagger\PSSwagger.Azure.Helpers -Force
-Import-Module "$($param.Path)\$($param.Name)" -Force
-Get-Command -Module $param.Name
+
+#Import-Module ..\Tools\PSSwagger\PSSwagger\PSSwagger.Common.Helpers -Force
+#Import-Module ..\Tools\PSSwagger\PSSwagger\PSSwagger.Azure.Helpers -Force
+#Import-Module "$($param.Path)\$($param.Name)" -Force
+#Get-Command -Module $param.Name
 
 # Delete all the generated code files
 if( Test-Path $tmp ) {
