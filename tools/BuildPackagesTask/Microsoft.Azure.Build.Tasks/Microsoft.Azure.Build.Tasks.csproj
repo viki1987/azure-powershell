@@ -66,6 +66,7 @@
     <Compile Include="VerifyAuthenticodeSignatureTask.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GetPullRequestFileChanges.ps1" />
     <None Include="packages.config" />
     <None Include="Tests\AuthenticodeSignedTaskSmokeTest.proj" />
   </ItemGroup>

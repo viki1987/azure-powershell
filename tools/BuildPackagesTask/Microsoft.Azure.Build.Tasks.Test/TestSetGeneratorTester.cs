@@ -21,8 +21,12 @@ namespace Microsoft.WindowsAzure.Build.Tasks
 {
     public class TestSetGeneratorTester
     {
+        public const string CheckIn = "CheckIn";
+        public const string AcceptanceType = "AcceptanceType";
+
         #region GetTestSet Function Tests
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_OnePathAndOneMappingWithMatchingPath_ReturnsTestSetMatchingPath()
         {
             //declarations
@@ -49,6 +53,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_OnePathAndMultipleMappingsWithNonMatchingPaths_ReturnsAllTests()
         {
             //arrange
@@ -80,6 +85,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_MultiplePathsAndMultipleMappingsWithMatchingPaths_ReturnsAllTests()
         {
             //arrange
@@ -113,6 +119,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_MultiplePathsAndMultipleMappingsWitNonhMatchingPaths_ReturnsAllTests()
         {
             //arrange
@@ -145,8 +152,8 @@ namespace Microsoft.WindowsAzure.Build.Tasks
 
         }
 
-
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_MultiplePathsAndMultipleMappingsWithSomeMatchingPaths_ReturnsAllTests()
         {
             //arrange
@@ -180,6 +187,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_NoPathsProvided_ReturnsAllTests()
         {
             //arrange
@@ -202,6 +210,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_NoMappingsProvided_ShouldThrowArgumentException()
         {
             //arrange
@@ -228,6 +237,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_PathsNullArgument_ShouldThrowArgumentNullException()
         {
             //arrange
@@ -253,8 +263,8 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             throw new Exception("No exception was thrown.");
         }
 
-
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_MapNullArgument_ShouldThrowArgumentNullException()
         {
             //arrange
@@ -281,6 +291,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         }
 
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTestSet_SomePathIsNull_ShouldThrowArgumentNullException()
         {
             //arrange
@@ -314,6 +325,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         #endregion
         #region GetTests Function Tests
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_MultiplePathsAndMultipleMappingsWithSomeMatchingPaths_ReturnsAllTests()
         {
             //arrange
@@ -339,7 +351,9 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             //assert            
             Assert.True(expectedNumberFiles == actual.Count);
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_MultiplePathsAndMultipleMappingsWithMatchingPaths_ReturnsMatchingTests()
         {
             //arrange
@@ -358,11 +372,13 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             //assert            
             Assert.True(expectedNumberFiles == actual.Count);
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_FilesNull_ThrowNullException()
         {
             //arrange           
-            string mapFilePath = @"C:\azure-powershell\tools\BuildPackagesTask\map.json";
+            string mapFilePath = @"..\..\..\Microsoft.Azure.Build.Tasks\map.json";
 
             try
             {
@@ -376,7 +392,9 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             }
             throw new Exception("No exception was thrown.");
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_EmptyListOfFiles_ShouldReturnAllTests()
         {
             //arrange
@@ -391,7 +409,9 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             //assert            
             Assert.True(expectedNumberFiles == actual.Count);
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_InvalidPath_ThrowNotNullException()
         {
             //arrange
@@ -415,7 +435,9 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             }
             throw new Exception("No exception was thrown.");
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_WithActualMappings_FilesFound_ReturnsMatchingTests()
         {
             //arrange
@@ -449,7 +471,9 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             //assert            
             Assert.True(expected.SetEquals(actual));
         }
+
         [Fact]
+        [Trait(AcceptanceType, CheckIn)]
         public void GetTests_WithActualMappings_FilesNotFound_ReturnsAllTests()
         {
             //arrange

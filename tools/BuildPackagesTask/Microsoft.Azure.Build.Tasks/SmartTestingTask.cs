@@ -17,10 +17,12 @@ namespace Microsoft.WindowsAzure.Build.Tasks
     using Microsoft.Build.Framework;
     using Microsoft.Build.Utilities;
     using System.Management.Automation;
+    using System.Management.Automation.Runspaces;
     using System.Collections.ObjectModel;
     using Microsoft.Azure.Build.Tasks.Properties;
     using System.Collections.Generic;
     using System;
+    using System.IO;
 
     /// <summary>
     /// A simple Microsoft Build task used to generate a list of test assemblies to be
@@ -46,7 +48,7 @@ namespace Microsoft.WindowsAzure.Build.Tasks
         ///  Gets or sets the path to the files-to-test-assemblies map.
         /// </summary>
         [Required]
-        public string MapFilePath { get; set; }
+        public string MapFilePath { get; set; }       
         /// <summary>
         /// Gets or sets the test assemblies output produced by the task.
         /// </summary>
@@ -83,23 +85,56 @@ namespace Microsoft.WindowsAzure.Build.Tasks
             {
                 // Call the PowerShell.Create() method to create an 
                 // empty pipeline.
+                List<string> filesChanged = new List<string>(); 
+                var GetFilesScript = File.ReadAllText(@".\Microsoft.Azure.Build.Tasks\GetPullRequestFileChanges.ps1");
+                Collection<PSObject> psOutput = new Collection<PSObject>();
+
                 PowerShell powerShell = PowerShell.Create();
-                powerShell.AddScript(Resources.GetFilesScript);
-                powerShell.AddScript($"Get-PullRequestFileChanges -RepositoryOwner {RepositoryOwner} " +
-                                             $"-RepositoryName {RepositoryName} -PullRequestNumber {ParsedPullRequestNumber}");
-                // invoke execution on the pipeline (collecting output)
-                Collection<PSObject> psOutput = powerShell.Invoke();
-                List<string> filesChanged = new List<string>();
-
-                if (psOutput == null)
+                powerShell.AddScript(GetFilesScript);
+                powerShell.AddScript("$DebugPreference=\"Continue\"");
+                powerShell.AddScript($"Get-PullRequestFileChanges " +
+                                        $"-RepositoryOwner {RepositoryOwner} " +
+                                        $"-RepositoryName {RepositoryName} " +
+                                        $"-PullRequestNumber {ParsedPullRequestNumber}");
+                    
+                powerShell.Streams.Debug.Clear();
+                // invoke execution on the pipeline (collecting output)   
+                try
                 {
-                    return false;
-                }
+#if DEBUG
+                    Console.WriteLine("DEBUG: ---Starting PS script to detect file changes...");
+#endif
+                    psOutput = powerShell.Invoke();
 
-                foreach (var element in psOutput)
-                {
-                    filesChanged.Add(element.ToString());
+#if DEBUG
+                    foreach (var debugRecord in powerShell.Streams.Debug)
+                    {
+                        Console.WriteLine("[PS]DEBUG: " + debugRecord.ToString());
+                    }
+#endif
+                    if (psOutput == null)
+                    {
+                        return false;
+                    }
+#if DEBUG
+                    Console.WriteLine("DEBUG: ---Using these files: ");
+#endif
+                    foreach (var element in psOutput)
+                    {
+                        var filename = element.ToString();
+#if DEBUG
+                        Console.WriteLine("DEBUG: " + filename);
+#endif
+                        filesChanged.Add(filename);
+                    }
+#if DEBUG
+                    Console.WriteLine("Total: " + filesChanged.Count);
+#endif
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine("---Exception Caught when trying to detect file changes with PS script: " + e.ToString());
+                }               
 
                 TestAssemblies = new List<string>(TestSetGenerator.GetTests(filesChanged, MapFilePath)).ToArray();
             }
